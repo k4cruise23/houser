@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import House from '../House/House'
+import axios from 'axios'
 
 export default class Dashboard extends Component{
     constructor(){
@@ -8,6 +9,12 @@ export default class Dashboard extends Component{
         this.state = {
             houses: []
         }
+    }
+
+    componentDidMount(){
+        axios.get('/api/houses').then(res => {
+            this.setState({houses: res.data})
+        })
     }
 
     render(){
@@ -26,6 +33,7 @@ export default class Dashboard extends Component{
                     )
                 }) : null}
                 Dashboard
+                <button>Add New Property</button>
                 <House />
             </div>
         )

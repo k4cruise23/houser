@@ -13,8 +13,19 @@ export default class Wizard extends Component{
         }
     }
 
-    
+    cancelButton = () => {
+        this.setState({
+            name: '',
+            address: '',
+            city: '',
+            state: '',
+            zipcode: ''
+        })
+    }
 
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.valur})
+    }
 
     render(){
         return (
@@ -31,7 +42,7 @@ export default class Wizard extends Component{
                 <input type="text"/>
                 Zip
                 <input type="text"/>
-                <button>Complete</button>
+                <button>Cancel</button>
             </div>
         )
     }
