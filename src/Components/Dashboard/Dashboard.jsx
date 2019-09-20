@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import House from '../House/House'
 import axios from 'axios'
+import Link from 'react-router-dom'
 
 export default class Dashboard extends Component{
     constructor(){
@@ -17,25 +18,24 @@ export default class Dashboard extends Component{
         })
     }
 
+    deleteHouse(id){
+        axios.delete(`/api/house/${id}`).then(res => {
+            this.componentDidMount()
+        })
+    }
+
     render(){
-        
+        const mappedHouses = this.state.houses.map((element, index) => {
+            return (<House key={index} house={element}  />)
+        })
         return(
             <div>
-                {this.state.houses.length ? this.state.houses.map(element => {
-                    return (
-                        <div key={element.house_id} >
-                            <h3>{element.property_name}</h3>
-                            <h3>{element.address}</h3>
-                            <h3>{element.city}</h3>
-                            <h3>{element.state}</h3>
-                            <h3>{element.zip}</h3>
-                        </div>
-                    )
-                }) : null}
-                Dashboard
+                <h1>Dashboard</h1>
                 <button>Add New Property</button>
-                <House />
+                <Link to='/wizard' > <button>Add New Property</button> </Link>
+                {mappedHouses}
             </div>
         )
     }
 }
+
