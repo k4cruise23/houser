@@ -13,7 +13,7 @@ export default class StepThree extends Component{
     }
 
     componentDidMount = () => {
-        store.subcribe(() => {
+        store.subscribe(() => {
             const {mortgage, rent} = store.getState()
             this.setState({mortgage, rent})
         })
