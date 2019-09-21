@@ -13,6 +13,19 @@ export default class Dashboard extends Component{
         this.deleteHouse = this.deleteHouse.bind(this)
     }
 
+    
+    componentDidMount = () => {
+        this.getHouses()
+    }
+    
+    
+    getHouses = () => {
+        axios.get('/api/houses').then( res => {
+            this.setState({houses: res.data})
+            console.log('hit')
+        })
+    }
+    
     // componentDidMount(){
     //     console.log('hit')
     //     axios.get('/api/houses').then(res => {
@@ -20,18 +33,6 @@ export default class Dashboard extends Component{
     //         console.log(res.data)
     //     })
     // }
-
-    componentDidMount = () => {
-         this.getHouses()
-    }
-
-    getHouses = () => {
-        axios.get('/api/houses').then( res => {
-            console.log(res.data)
-            this.setState({ houses: res.data})
-        })
-    }
-
 
 
     deleteHouse(id){
