@@ -1,23 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-// import Dashboard from './Components/Dashboard/Dashboard';
-import Wizard from './Components/Wizard/Wizard'
+
 import Header from './Components/Header/Header'
+import {Link, Switch, Route} from 'react-router-dom'
 import router from './route'
 
 
 
-export default class App extends Component{
-    render(){
-        return (
-            <div>
-
-                <Header />
-                <Wizard />
-                {router}
-            </div>
-        )
-    }
-}
+export default function App() {
+    return (
+      <div className="App">
+        <Header />
+        {router}
+      </div>
+    );
+  }
 
 
