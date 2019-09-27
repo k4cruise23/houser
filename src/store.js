@@ -1,5 +1,16 @@
 import {createStore} from 'redux'
 
+export const UPDATE_NAME = 'UPDATE_NAME'
+export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
+export const UPDATE_CITY = 'UPDATE_CITY'
+export const UPDATE_STATE = 'UPDATE_STATE'
+export const UPDATE_ZIP = 'UPDATE_ZIP'
+export const UPDATE_IMG = 'UPDATE_IMG'
+export const UPDATE_MORTGAGE = 'UPDATE_MORTGAGE'
+export const UPDATE_RENT ='UPDATE_RENT'
+export const CANCEL = 'CANCEL'
+
+
 const initalState = {
     name: '',
     address: '',
@@ -11,21 +22,27 @@ const initalState = {
     rent: ''
 }
 
-export const UPDATE_STEP_ONE = 'UPDATE_STEP_ONE'
-export const UPDATE_STEP_TWO = 'UPDATE_STEP_TWO'
-export const UPDATE_STEP_THREE = 'UPDATE_STEP_THREE'
-export const CANCEL = 'CANCEL'
 
 const reducer = (state = initalState, action) => {
     const {payload, type} = action
 
     switch (type) {
-        case UPDATE_STEP_ONE:
-            return Object.assign({}, state, payload)
-        case UPDATE_STEP_TWO:
-            return Object.assign({}, state, payload)
-        case UPDATE_STEP_THREE:
-            return Object.assign({}, state, payload)
+        case UPDATE_NAME:
+            return {...state, name: payload}
+        case UPDATE_ADDRESS:
+            return {...state, address: payload}
+        case UPDATE_CITY:
+            return {...state, city: payload}
+        case UPDATE_STATE:
+            return {...state, state: payload}
+        case UPDATE_ZIP:
+            return {...state, zip: payload}
+        case UPDATE_IMG:
+            return {...state, img: payload}
+        case UPDATE_MORTGAGE:
+            return {...state, mortgage: payload}
+        case UPDATE_RENT:
+            return {...state, rent: payload}
         case CANCEL:
             const newState = {
                 name: '',
@@ -44,5 +61,5 @@ const reducer = (state = initalState, action) => {
 }
 
 
-
-export default createStore(reducer)
+const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+export default store

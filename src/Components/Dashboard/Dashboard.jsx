@@ -22,7 +22,7 @@ export default class Dashboard extends Component{
     getHouses = () => {
         axios.get('/api/houses').then( res => {
             this.setState({houses: res.data})
-            console.log('hit')
+            // console.log('hit')
         })
     }
     
@@ -46,11 +46,16 @@ export default class Dashboard extends Component{
             return (<House key={index} element={element} deleteHouse={this.deleteHouse} />)
         })
         return(
-            <div>
+            <div className="parent">
+            <div className='dashboard'>
+                <div className="dash">
                 <h1>Dashboard</h1>
-                <h1>Home Listings</h1>
-                <Link to='/wizard/step1' > <button>Add New Property</button> </Link>
+                <Link to='/wizard/step1'> <button className='addnewprop' >Add New Property</button> </Link>
+                </div>
+                <div className="line"></div>
+                <h1 className='homelistings' >Home Listings</h1>
                 {mappedHouses}
+            </div>
             </div>
         )
     }

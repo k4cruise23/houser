@@ -39,15 +39,19 @@ export default class Wizard extends Component{
 
     render(){
         return (
-            <div>
-                <h1>Add NewListing</h1>
-                <Link to='/' onClick={this.cancelButton} ><button>Cancel</button></Link>
+            <section>
+            <div className='parent'>
+                <div className="wizard">
+                <h1>Add New Listing</h1>
+                <Link to='/' onClick={this.cancelButton} ><button className='cancel'>Cancel</button></Link>
+                </div>
+            </div>
                 <Switch>
                     <Route path='/wizard/step1' component={StepOne} />
                     <Route path='/wizard/step2' component={StepTwo} />
                     <Route path='/wizard/step3' component={StepThree} />
                 </Switch>
-            </div>
+            </section>
         )
     }
 }

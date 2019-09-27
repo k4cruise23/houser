@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import store, {UPDATE_STEP_TWO} from '../../store'
+import store, {UPDATE_IMG} from '../../store'
 
 
 export default class StepTwo extends Component {
@@ -8,38 +8,41 @@ export default class StepTwo extends Component {
         super()
         
         const reduxState = store.getState()
-
-        this.state= {
-            img: reduxState.img
-        }
+        const {img} = reduxState
+        this.state= {img}
     }
 
 
-    handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+    handleChange = (key, e) => {
+        this.setState({[key]: e.target.value})
     }
 
     componentDidMount = () => {
         store.subscribe(() => {
-            const reduxState = store.getState()
-            this.setState({img: reduxState.img})
+            const {img} = store.getState
+            this.setState({img})
         })
     }
 
     updateRedux = () => {
         const action = {
-            type: UPDATE_STEP_TWO,
-            payload: {...this.state}
+            type: UPDATE_IMG,
+            payload: this.state.img
         }
         store.dispatch(action)
     }
 
     render() {
         return (
-            <div>
-                <input type="text" onChange={this.handleChange} value={this.state.img} />
+            <div className='parent'>
+            <div className='dashboard'>
+                <label>Image URL</label>
+                <input type="text" onChange={e => this.handleChange('img', e)} value={this.state.img} name='image' />
+                <div className="nextandprevious">
                 <Link to='/wizard/step1' onClick={this.updateRedux} ><button>Previous Step</button></Link>
                 <Link to='/wizard/step3' onClick={this.updateRedux} ><button>Next Step</button></Link>
+                </div>
+            </div>
             </div>
         )
     }

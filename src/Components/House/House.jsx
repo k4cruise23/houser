@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 
 export default class House extends Component {
     render(){
-        const {name, address, city, state, zip, img, mortgage, rent, id} = this.props.house
+        const {name, address, city, state, zip, img, mortgage, rent, id} = this.props.element
+        // console.log(house)
         return(
             <div>
-                <img src={`${img}`} alt={`${name}`} />
+                <img src={img} alt='stuff' />
                 <p>Property Name: {name} </p>
                 <p>Address: {address} </p>
                 <p>City: {city} </p>

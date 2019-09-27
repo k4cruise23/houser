@@ -1,22 +1,62 @@
-.App {
-  text-align: center;
+body {
+  background-color: #AFD4C0;
 }
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  height: 50px;
+  width: 100%;
+  background-color: #519872;
   color: white;
+  font-size: 1.5rem;
 }
+.houser{
+  display: flex;
+  justify-content: center;
+}
+.dashboard{
+  height: 100%;
+  width: 50vw;
+  background-color: #E5F4EC;
+}
+.parent {
+  display: flex;
+  justify-content: center;
+}
+.dash{
+  display: flex;
+  justify-content: space-between;
+}
+.addnewprop{
+  height: 30px;
+  background-color: #8AEA92;
+  margin: 25px;
+}
+.line{
+  height: 1px;
+  background-color: black;
+  width: 100%;
+}
+.homelistings{
+  font-size: 1rem;
+}
+.wizard{
+  height: 100%;
+  width: 50vw;
+  background: #E5F4EC;
+  display: flex;
+  justify-content: space-between;
+}
+.cancel{
+  height: 30px;
+  background-color: #FEC2C2;
+  margin: 20px;
+}
+.nextandprevious{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
 
-.App-link {
-  color: #09d3ac;
+}
+img{
+  height: 100px;
+  width: 150px;
 }
